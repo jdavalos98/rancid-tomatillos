@@ -1,9 +1,15 @@
 import './MoviesContainer.css';
+import React from 'react'
+import MoviePoster from "./MoviePoster"
 
-function Movies() {
+function Movies({movies}) {
   return (
       <section className='MoviesContainer'>
-        <p>We'll make some movie posters show up here!</p>
+        <div className='movies-grid'>
+          {movies.map((movie) => (
+            <MoviePoster key={movie.id} movie={movie} />
+          ))}
+          </div>
       </section>
   );
 }
