@@ -3,7 +3,9 @@ import './MoviePoster.css';
 function MoviePoster() {
   return (
     <section className='MoviePoster'>
-      <p>This is a movie poster.</p>
+      <div className="movie-card">
+        <img src={MoviePoster.poster_path} alt={movie.title} />
+      </div>
     </section>
   );
 }
