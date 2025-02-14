@@ -1,6 +1,6 @@
 import './MoviesContainer.css';
 import React from 'react'
-import MoviePoster from "./MoviePoster"
+import MoviePoster from "../MoviePoster/MoviePoster";
 
 function Movies({movies}) {
   return (
