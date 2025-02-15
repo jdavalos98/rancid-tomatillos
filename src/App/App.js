@@ -1,20 +1,20 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
 
-// Example imports (for later):
-import { useState, useEffect } from 'react';
-import moviePosters from '../data/movie_posters';
+// import { useState, useEffect } from 'react';
+import MoviePoster from '../MoviePoster/MoviePoster'
+import moviePosters from '../data/movie_posters'; 
 import movieDetails from '../data/movie_details';
-import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import Movies from '../MoviesContainer/MoviesContainer';
 
 function App() {
   const [movies, setMovies] = useState(moviePosters)
   return (
     <main className='App'>
       <header>
-        <h1>rancid tomatillos</h1>
+        <h1>Rancid Tomatillos</h1>
       </header>
-      <MoviesContainer movies={movies} />
+      <Movies movies={moviePosters} />
     </main>
   );
 }

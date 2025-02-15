@@ -1,0 +1,11 @@
+.MoviePoster {
+  width: 200px;
+  height: auto;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; 
+}
