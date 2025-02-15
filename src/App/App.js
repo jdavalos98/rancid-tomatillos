@@ -1,7 +1,7 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
 
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MoviePoster from '../MoviePoster/MoviePoster'
 import moviePosters from '../data/movie_posters'; 
 import movieDetails from '../data/movie_details';
@@ -14,7 +14,7 @@ function App() {
       <header>
         <h1>Rancid Tomatillos</h1>
       </header>
-      <Movies movies={moviePosters} />
+      <Movies movies={movies} />
     </main>
   );
 }
