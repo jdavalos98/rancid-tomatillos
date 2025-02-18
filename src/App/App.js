@@ -8,7 +8,15 @@ import movieDetails from '../data/movie_details';
 import Movies from '../MoviesContainer/MoviesContainer';
 
 function App() {
-  const [movies, setMovies] = useState(moviePosters);
+  const [movies, setMovies] = useState(() => {
+    
+    const savedMovies = localStorage.getItem('movies');
+    return savedMovies ? JSON.parse(savedMovies) : moviePosters;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('movies', JSON.stringify(movies));
+  }, [movies]);
 
   const upvoteMovie = (id) => {
     setMovies(movies.map(movie => 
