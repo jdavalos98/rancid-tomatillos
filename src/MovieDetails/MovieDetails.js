@@ -1,9 +1,17 @@
 import './MovieDetails.css';
 
-function MovieDetails() {
+function MovieDetails({ movie }) {
   return (
     <section className='MovieDetails'>
-      <p>Movie Details go here!</p>
+      <img 
+        className='backdrop' 
+        src={movie.backdrop_path} 
+        alt={`${movie.title} backdrop`} 
+      />
+      <h2>{movie.title}</h2>
+        <p>Genres:{movie.genre_ids.join(', ')}</p>
+        <p>Release Date: {movie.release_date}</p>
+        <p>Overview:{movie.overview}</p>
     </section>
   );
 }

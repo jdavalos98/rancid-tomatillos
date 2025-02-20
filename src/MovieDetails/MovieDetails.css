@@ -1,0 +1,25 @@
+.movie-details {
+  text-align: center;
+  padding: 20px;
+}
+
+.backdrop {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.details-container {
+  margin-top: 20px;
+}
+
+.details-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.details-container p {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
