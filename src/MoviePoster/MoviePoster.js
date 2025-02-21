@@ -1,6 +1,6 @@
 import './MoviePoster.css';
 
-function MoviePoster({movie}) {
+function MoviePoster({ movie }) {
   return (
     <section className='MoviePoster'>
       <div className="movie-card">

@@ -1,25 +1,35 @@
-.movie-details {
-  text-align: center;
+/* MovieDetails.css */
+.MovieDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  text-align: center;
 }
 
-.backdrop {
+.MovieDetails .poster {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+.MovieDetails .backdrop {
   width: 100%;
-  max-height: 400px;
+  max-width: 1200px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.details-container {
+.MovieDetails h2 {
+  font-size: 2rem;
   margin-top: 20px;
 }
 
-.details-container h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.details-container p {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+.MovieDetails p {
+  font-size: 1.1rem;
+  margin: 10px 0;
 }
