@@ -26,8 +26,28 @@ describe('Main Page', () => {
 
     
     cy.get('.MoviePoster img').first().should('have.attr', 'src', posters[0].poster_path);
-
-    
     cy.get('.MoviePoster img').last().should('have.attr', 'src', posters[posters.length - 1].poster_path);
   });
+
+  it('increases vote count when upvoted', () => {
+    const movie = posters[0]
+    const updatedVotes = movie.vote_count + 1
+
+    cy.intercept('PATCH', `https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movie.id}`, {
+      statusCode: 200,
+      body: { ...movie, vote_count: updatedVotes }
+    }).as('upvoteMovie');
+
+    cy.get('.movie-card').first().within(() => {
+      cy.get('.vote-count').should('contain', movie.vote_count)
+      cy.get('.upvote-button').click()
+    })
+    
+    cy.wait('@upvoteMovie')
+    cy.get('.movie-card').first().within(() => {
+      cy.get('.vote-count').should('contain', updatedVotes)
+    })
+  })
+
+  
 })
