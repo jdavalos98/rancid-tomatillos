@@ -15,7 +15,7 @@ function MovieDetails() {
       fetch(`${API_URL}/${id}`)
         .then(response => {
           if (!response.ok) {
-            throw new Error("Failed to fetch movies");
+            throw new Error("Failed to fetch movie");
           }
           return response.json();
         })
