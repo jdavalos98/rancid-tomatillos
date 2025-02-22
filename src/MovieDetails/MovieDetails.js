@@ -2,6 +2,7 @@
 import { useParams, Link } from 'react-router-dom';
 import './MovieDetails.css';
 import { useState, useEffect } from 'react';
+import homeIcon from '../icons/home.png';
 
 const API_URL = "https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies";
 
@@ -37,7 +38,7 @@ function MovieDetails() {
     <section className='MovieDetails'>
        <h1>Rancid Tomatillos</h1>
 
-        <Link to="/" className="back-button">⬅ Back to Home</Link>
+        <Link to="/" className="back-button"><img src={homeIcon} alt="Home" className="home-icon" /></Link>
       <img
         className='backdrop'
         src={movie.backdrop_path}

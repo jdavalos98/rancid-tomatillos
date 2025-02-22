@@ -1,10 +1,22 @@
-/* MovieDetails.css */
 .MovieDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   text-align: center;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.home-icon {
+  width: 40px;
+  height: 40px;
 }
 
 .MovieDetails .poster {
