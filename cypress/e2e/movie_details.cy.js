@@ -38,4 +38,20 @@ describe('Movie Details Page', () => {
     cy.visit('http://localhost:3000/');
     cy.url().should('eq', 'http://localhost:3000/');
   });
+
+  describe('Fetch Movie Details - Error Case', () => {
+    beforeEach(() => {
+      cy.intercept('GET', 'https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/999', {
+        statusCode: 404, 
+        body: {}  
+      }).as('getMovieDetailsError');
+    });
+  
+    it('should display an error message when movie details fetch fails', () => {
+      cy.visit('http://localhost:3000/999');
+      cy.wait('@getMovieDetailsError');
+      cy.contains('Error: Failed to fetch movie');
+    });
+  });
+  
 });
