@@ -40,7 +40,7 @@ describe('Main Page', () => {
 
     cy.get('.movie-card').first().within(() => {
       cy.get('.vote-count').should('contain', movie.vote_count)
-      cy.get('.upvote-button').click()
+      cy.get('.up-vote-btn').click()
     })
     
     cy.wait('@upvoteMovie')
@@ -49,5 +49,23 @@ describe('Main Page', () => {
     })
   })
 
-  
+  it('decreases vote count when downvoted', () => {
+    const movie = posters[0]
+    const updatedVotes = movie.vote_count - 1
+
+    cy.intercept('PATCH', `https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movie.id}`, {
+      statusCode: 200,
+      body: { ...movie, vote_count: updatedVotes }
+    }).as('downvoteMovie');
+
+    cy.get('.movie-card').first().within(() => {
+      cy.get('.vote-count').should('contain', movie.vote_count)
+      cy.get('.down-vote-btn').click()
+    })
+
+    cy.wait('@downvoteMovie')
+    cy.get('.movie-card').first().within(() => {
+      cy.get('.vote-count').should('contain', updatedVotes)
+    })
+  })
 })
