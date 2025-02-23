@@ -34,8 +34,13 @@ describe('Movie Details Page', () => {
       statusCode: 200,
       body: posters
     }).as('getMovies');
-    cy.get('.back-button').should('contain', 'Back to Home').click();
-    cy.visit('http://localhost:3000/');
+    cy.get('.back-button img')
+      .should('have.attr', 'src');
+
+      cy.get('.back-button')
+      .should('exist')
+      .click();
+    
     cy.url().should('eq', 'http://localhost:3000/');
   });
 
